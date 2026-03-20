@@ -1,0 +1,3 @@
+[workspace]
+members = ["ga-engine", "curl-fuzzer", "ls-fuzzer", "openssl-fuzzer"]
+resolver = "2"

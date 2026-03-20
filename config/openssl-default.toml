@@ -1,0 +1,31 @@
+# OpenSSL Fuzzer Configuration File
+
+[ga]
+population_size = 50
+max_generations = 100
+mutation_rate = 0.05
+crossover_rate = 0.8
+elitism_percent = 0.1
+# seed = 42
+
+[openssl]
+openssl_path = "/home/example/src/openssl/apps/openssl"
+timeout_ms = 5000
+connect = "localhost:8443"
+flags_overlay_path = "config/openssl-flags.toml"
+min_flags = 2
+max_flags = 20
+max_active_flags = 20
+
+[fitness]
+weight_crash = 100.0
+weight_sanitizer = 200.0
+weight_exit_code = 10.0
+weight_timing = 5.0
+weight_tls_anomaly = 15.0
+weight_memory = 8.0
+
+[output]
+database_path = "openssl-fuzzer.db"
+findings_dir = "openssl-findings"
+fitness_threshold = 5.0

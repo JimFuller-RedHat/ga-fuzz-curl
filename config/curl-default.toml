@@ -1,0 +1,38 @@
+# Curl Fuzzer Configuration File
+
+[ga]
+population_size = 50
+max_generations = 500
+mutation_rate = 0.05
+crossover_rate = 0.8
+elitism_percent = 0.1
+# seed = 42  # Uncomment to use a fixed seed
+
+[curl]
+curl_path = "curl"
+timeout_ms = 30000
+target_url = "http://localhost:8080"
+flags_overlay_path = "config/curl-flags.toml"
+min_flags = 5
+max_flags = 30
+
+[fitness]
+weight_crash = 100.0
+weight_exit_code = 15.0
+weight_timing = 5.0
+weight_memory = 1.5
+weight_cpu = 1.5
+weight_stderr = 5.0
+weight_http_anomaly = 3.0
+
+[servers]
+start_servers = true
+
+[protocols]
+enabled = ["http", "https", "ftp", "ftps", "smtp", "smtps", "imap", "imaps", "pop3", "pop3s", "gopher", "gophers", "dict", "mqtt", "mqtts", "tftp", "telnet", "ws", "wss", "file"]
+blocking_timeout_s = 5
+
+[output]
+database_path = "curl-fuzzer.db"
+findings_dir = "curl-findings"
+fitness_threshold = 25.0

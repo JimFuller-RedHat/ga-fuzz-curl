@@ -1,0 +1,79 @@
+# OpenSSL s_client flag overlay
+# Refines auto-discovered flag types with specific ranges and options
+
+[[flags]]
+name = "-verify"
+type = "integer"
+min = 0
+max = 10
+
+[[flags]]
+name = "-maxfraglen"
+type = "discrete"
+options = ["512", "1024", "2048", "4096"]
+
+[[flags]]
+name = "-max_send_frag"
+type = "integer"
+min = 256
+max = 16384
+
+[[flags]]
+name = "-split_send_frag"
+type = "integer"
+min = 0
+max = 16384
+
+[[flags]]
+name = "-max_pipelines"
+type = "integer"
+min = 1
+max = 8
+
+[[flags]]
+name = "-read_buf"
+type = "integer"
+min = 512
+max = 65536
+
+[[flags]]
+name = "-mtu"
+type = "integer"
+min = 256
+max = 16384
+
+[[flags]]
+name = "-verify_depth"
+type = "integer"
+min = 0
+max = 20
+
+[[flags]]
+name = "-auth_level"
+type = "integer"
+min = 0
+max = 5
+
+[[flags]]
+name = "-srp_strength"
+type = "integer"
+min = 512
+max = 4096
+
+[[flags]]
+name = "-keymatexportlen"
+type = "integer"
+min = 1
+max = 1024
+
+[[flags]]
+name = "-ech_select"
+type = "integer"
+min = 0
+max = 10
+
+[[flags]]
+name = "-ech_grease_type"
+type = "integer"
+min = 0
+max = 65535

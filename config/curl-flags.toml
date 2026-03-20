@@ -1,0 +1,71 @@
+# Curl Flag Type Overlays
+# This file specifies enhanced type information for curl flags
+
+[[flags]]
+name = "--connect-timeout"
+type = "integer"
+min = 1
+max = 300
+
+[[flags]]
+name = "--max-time"
+type = "integer"
+min = 1
+max = 600
+
+[[flags]]
+name = "--retry"
+type = "integer"
+min = 0
+max = 10
+
+[[flags]]
+name = "--limit-rate"
+type = "float"
+min = 0.0
+max = 10000.0
+
+[[flags]]
+name = "--cert-type"
+type = "discrete"
+options = ["PEM", "DER", "ENG"]
+
+[[flags]]
+name = "--key-type"
+type = "discrete"
+options = ["PEM", "DER", "ENG"]
+
+[[flags]]
+name = "--tlsv1.0"
+type = "boolean"
+
+[[flags]]
+name = "--tlsv1.1"
+type = "boolean"
+
+[[flags]]
+name = "--tlsv1.2"
+type = "boolean"
+
+[[flags]]
+name = "--tlsv1.3"
+type = "boolean"
+
+# Protocol-specific flag affinity
+[flag-affinity.ftp]
+flags = ["--ftp-pasv", "--ftp-port", "--ftp-ssl", "--ftp-ssl-reqd", "--ftp-account",
+         "--ftp-method", "--ftp-skip-pasv-ip", "--ftp-ssl-ccc", "--ftp-ssl-ccc-mode",
+         "--ftp-create-dirs", "--ftp-alternative-to-user"]
+
+[flag-affinity.smtp]
+flags = ["--mail-from", "--mail-rcpt", "--mail-auth", "--mail-rcpt-allowfails",
+         "--sasl-authzid", "--sasl-ir", "--login-options"]
+
+[flag-affinity.imap]
+flags = ["--login-options", "--sasl-authzid", "--sasl-ir"]
+
+[flag-affinity.pop3]
+flags = ["--login-options", "--sasl-authzid", "--sasl-ir"]
+
+[flag-affinity.ws]
+flags = ["--no-buffer"]

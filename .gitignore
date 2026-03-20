@@ -1,0 +1,5 @@
+/target
+curl-findings/
+ls-findings/
+openssl-findings/
+*.db
